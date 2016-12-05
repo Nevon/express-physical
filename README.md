@@ -1,5 +1,5 @@
 # Express Physical
-[![Build Status](https://travis-ci.org/Nevon/express-physical.svg?branch=master)](https://travis-ci.org/Nevon/express-physical)
+[![Build Status](https://travis-ci.org/Nevon/express-physical.svg?branch=master)](https://travis-ci.org/Nevon/express-physical) [![npm version](https://badge.fury.io/js/express-physical.svg)](https://badge.fury.io/js/express-physical)
 
 Healthcheck middleware for Express.
 
