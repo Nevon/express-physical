@@ -7,7 +7,7 @@
   "author": "Tommy Brunn <tommy.brunn@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "npm run lint test:unit",
+    "test": "npm run lint && npm run test:unit",
     "test:unit": "NODE_ENV=test jest",
     "test:unit:watch": "npm run test:unit -- --watch",
     "lint": "standard",
