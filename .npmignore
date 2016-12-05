@@ -1,0 +1,4 @@
+.editorconfig
+__tests__
+.travis-yml
+README.md
