@@ -129,6 +129,18 @@ Constants representing the severity of a failing check.
 
 ## Tips
 
+### Some of my healthchecks are more expensive than others to run
+
+`express-physical` does not expose a way to configure the interval at which healthchecks are invoked. If one of your healthchecks is too expensive to be run every time your monitoring system polls the healthcheck endpoint, throttle your function call so that it returns a cached value if called multiple times within a certain interval.
+
+### I need to pass arguments into my healthcheck
+
+Checks _need_ to receive either one or zero arguments, where that argument is a callback that will be provided by `express-physical`. If you have to pass more arguments into it, pass them when you create the check rather than at time of invokation.
+
+```
+const (db) => (done) => db.isHealthy((err, res) => done(physical.response({ ... })))
+```
+
 ### Avoiding repeating data for `responses`
 
 Use a higher-order function to avoid having to repeat certain elements when creating `responses`. Ex.
