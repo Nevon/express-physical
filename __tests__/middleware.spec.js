@@ -22,32 +22,71 @@ describe('When there is an error thrown', () => {
 })
 
 describe('When the checks complete', () => {
-  test('It sends the serialized responses', () => {
-    const res = {
-      send: jest.fn(),
-      status: function () {
-        return this
+  describe('With healthy checks', () => {
+    test('It sends the serialized responses with 200 status code', () => {
+      const statusMock = jest.fn()
+      const res = {
+        send: jest.fn(),
+        status: statusMock
       }
-    }
+      statusMock.mockReturnValue(res)
 
-    const check = () => {
-      return physical.response({
-        name: 'Test',
-        healthy: true,
-        type: physical.type.SELF,
-        actionable: false
+      const check = () => {
+        return physical.response({
+          name: 'Test',
+          healthy: true,
+          type: physical.type.SELF,
+          actionable: false
+        })
+      }
+
+      physical([check])({}, res, () => {})
+
+      expect(res.send).toHaveBeenCalledWith({
+        healthy: [{
+          name: 'Test',
+          healthy: true,
+          type: 'SELF',
+          actionable: false
+        }]
       })
-    }
+      expect(res.status).toHaveBeenCalledWith(200)
+    })
+  })
 
-    physical([check])({}, res, () => {})
+  describe('With unhealthy checks', () => {
+    test('It sends the serialized responses with 500 status code', () => {
+      const statusMock = jest.fn()
+      const res = {
+        send: jest.fn(),
+        status: statusMock
+      }
+      statusMock.mockReturnValue(res)
 
-    expect(res.send).toHaveBeenCalledWith({
-      healthy: [{
-        name: 'Test',
-        healthy: true,
-        type: 'SELF',
-        actionable: false
-      }]
+      const check = () => {
+        return physical.response({
+          name: 'Failing Test',
+          healthy: false,
+          type: physical.type.SELF,
+          actionable: false,
+          severity: physical.severity.WARN,
+          message: 'Something is failing'
+        })
+      }
+
+      physical([check])({}, res, () => {})
+
+      expect(res.send).toHaveBeenCalledWith({
+        unhealthy: [{
+          name: 'Failing Test',
+          healthy: false,
+          type: 'SELF',
+          actionable: false,
+          severity: 'WARN',
+          message: 'Something is failing'
+        }]
+      })
+      expect(res.status).toHaveBeenCalledWith(500)
     })
   })
 })
