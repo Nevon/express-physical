@@ -16,8 +16,24 @@ const validateDependentOn = (type) => R.contains(type, DEPENDENT_ON_REQUIRED_TYP
   ? R.allPass([R.is(String), R.compose(R.not, R.isEmpty)])
   : R.isNil
 
-module.exports = (
-  name,
+const validateHealthyResponse = (name,
+  type,
+  actionable,
+  severity,
+  dependentOn) => validateName(name) &&
+    validateType(type) &&
+    R.is(Boolean)(actionable) &&
+    R.isNil(severity) &&
+    validateDependentOn(type)(dependentOn)
+
+const validateUnhealthyResponse = (severity,
+  type,
+  dependentOn,
+  message) => validateSeverity(severity) &&
+    validateDependentOn(type)(dependentOn) &&
+    validateMessage(message)
+
+module.exports = (name,
   healthy,
   actionable,
   type,
@@ -31,15 +47,7 @@ module.exports = (
     return false
   }
 
-  if (healthy) {
-    return validateName(name) &&
-           validateType(type) &&
-           R.is(Boolean)(actionable) &&
-           R.isNil(dependentOn) &&
-           R.isNil(severity)
-  }
-
-  return validateSeverity(severity) &&
-         validateDependentOn(type)(dependentOn) &&
-         validateMessage(message)
+  return healthy
+    ? validateHealthyResponse(name, type, actionable, severity, dependentOn)
+    : validateUnhealthyResponse(severity, type, dependentOn, message)
 }
