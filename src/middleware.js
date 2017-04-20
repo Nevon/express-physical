@@ -1,5 +1,6 @@
 const runner = require('./runner')
 const marshal = require('./marshal')
+const hasFailingChecks = require('./lib/has-failing-checks')
 
 module.exports = (checks = []) => {
   const runChecks = runner(checks)
@@ -7,6 +8,6 @@ module.exports = (checks = []) => {
   return (req, res, next) => runChecks(
     (err, result) => err
       ? next(err)
-      : res.status(200).send(marshal(result))
+      : res.status(hasFailingChecks(result) ? 500 : 200).send(marshal(result))
   )
 }
