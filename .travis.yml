@@ -1,7 +1,8 @@
 language: node_js
 node_js:
-- node
-- lts/*
+  - node
+  - lts/*
+cache: yarn
 deploy:
   provider: npm
   email: tommy.brunn@gmail.com
