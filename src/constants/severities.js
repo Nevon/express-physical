@@ -1,5 +1,5 @@
 module.exports = {
-  WARN: 'WARN',
+  WARNING: 'WARNING',
   CRITICAL: 'CRITICAL',
   DOWN: 'DOWN'
 }
