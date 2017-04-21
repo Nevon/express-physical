@@ -1,10 +1,24 @@
-const R = require('ramda')
+const R = require("ramda");
 
-const validate = require('./validate')
+const validate = require("./validate");
 
-const createResponse = (responseData) => R.pick(['name', 'healthy', 'actionable', 'type', 'severity', 'message', 'dependentOn', 'info', 'link'], responseData)
+const createResponse = responseData =>
+  R.pick(
+    [
+      "name",
+      "healthy",
+      "actionable",
+      "type",
+      "severity",
+      "message",
+      "dependentOn",
+      "info",
+      "link"
+    ],
+    responseData
+  );
 
-module.exports = function (responseData) {
+module.exports = function(responseData) {
   const {
     name,
     healthy,
@@ -15,11 +29,23 @@ module.exports = function (responseData) {
     dependentOn,
     info,
     link
-  } = responseData
+  } = responseData;
 
-  if (!validate(name, healthy, actionable, type, severity, message, dependentOn, info, link)) {
-    throw new Error('Invalid input for HealthCheckResponse', responseData)
+  if (
+    !validate(
+      name,
+      healthy,
+      actionable,
+      type,
+      severity,
+      message,
+      dependentOn,
+      info,
+      link
+    )
+  ) {
+    throw new Error("Invalid input for HealthCheckResponse", responseData);
   }
 
-  return createResponse(responseData)
-}
+  return createResponse(responseData);
+};

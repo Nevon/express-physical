@@ -1,13 +1,16 @@
-const R = require('ramda')
-const parallel = require('async/parallel')
-const wrapWithCallbackIfNeeded = require('./lib/wrap-with-callback')
+const R = require("ramda");
+const parallel = require("async/parallel");
+const wrapWithCallbackIfNeeded = require("./lib/wrap-with-callback");
 
-const toParallel = (check) => (cb) => {
+const toParallel = check => cb => {
   try {
-    return check((res) => cb(undefined, res))
+    return check(res => cb(undefined, res));
   } catch (e) {
-    return cb(e)
+    return cb(e);
   }
-}
+};
 
-module.exports = (checks) => R.curry(parallel)(checks.map(R.compose(toParallel, wrapWithCallbackIfNeeded)))
+module.exports = checks =>
+  R.curry(parallel)(
+    checks.map(R.compose(toParallel, wrapWithCallbackIfNeeded))
+  );
