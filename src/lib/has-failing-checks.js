@@ -1,5 +1,5 @@
-const R = require('ramda')
+const R = require("ramda");
 
-const isUnhealthy = (check) => check.healthy === false
+const isUnhealthy = check => check.healthy === false;
 
-module.exports = (checks = []) => R.any(isUnhealthy)(checks)
+module.exports = (checks = []) => R.any(isUnhealthy)(checks);
