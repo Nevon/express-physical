@@ -1,7 +1,13 @@
 language: node_js
 node_js:
-- node
-- lts/*
+  - node
+  - lts/*
+cache: yarn
+env:
+  - STAGE=static-analysis
+  - STAGE=unit
+  - STAGE=integration
+script: "npm run test:$STAGE"
 deploy:
   provider: npm
   email: tommy.brunn@gmail.com

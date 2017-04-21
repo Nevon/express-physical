@@ -1,0 +1,135 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Healthchecks"
+  },
+  "paths": {
+    "/healthcheck": {
+      "get": {
+        "summary": "Health Check endpoint",
+        "description": "Each Kasper service must have an endpoint where the health of the service instance can be monitored",
+        "operationId": "getServiceInstanceHealth",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Health Check",
+            "schema": {
+              "$ref": "#/definitions/ServiceInstanceHealthDto"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "DependentOnDto": {
+      "type": "object",
+      "required": [
+        "service_name"
+      ],
+      "properties": {
+        "service_name": {
+          "type": "string",
+          "description": "The name of the service or infrastructure component that this check depends on."
+        }
+      }
+    },
+    "HealthCheckResponseDto": {
+      "type": "object",
+      "required": [
+        "actionable",
+        "healthy",
+        "name",
+        "type"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the check."
+        },
+        "healthy": {
+          "type": "boolean",
+          "description": "healthy: true|false."
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of this check.",
+          "enum": [
+            "SELF",
+            "METRICS",
+            "INFRASTRUCTURE",
+            "INTERNAL_DEPENDENCY",
+            "EXTERNAL_DEPENDENCY",
+            "INTERNET_CONNECTIVITY"
+          ]
+        },
+        "dependent_on": {
+          "description": "Describes which service this check depends on. Mandatory for types 'INFRASTRUCTURE', 'INTERNAL_DEPENDENCY' and 'EXTERNAL_DEPENDENCY', excluded otherwise.",
+          "$ref": "#/definitions/DependentOnDto"
+        },
+        "severity": {
+          "type": "string",
+          "description": "Mandatory if the check is not healthy, excluded otherwise.",
+          "enum": [
+            "WARNING",
+            "CRITICAL",
+            "DOWN'"
+          ]
+        },
+        "actionable": {
+          "type": "boolean",
+          "description": "Describes whether or not this team can take any action when the check is unhealthy"
+        },
+        "message": {
+          "type": "string",
+          "description": "A message describing the status of the check. Mandatory if unhealthy."
+        },
+        "link": {
+          "type": "string",
+          "description": "A link to where more information can be gotten."
+        },
+        "additional_info": {
+          "type": "object",
+          "description": " Additional information about this check. Monks Does not care about it, it's just pass through for end users!",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "description": "List of tags for the service that can be used group multiple services together.",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ServiceInstanceHealthDto": {
+      "type": "object",
+      "required": [
+        "healthy",
+        "unhealthy"
+      ],
+      "properties": {
+        "unhealthy": {
+          "type": "array",
+          "description": "List of unhealthy checks.",
+          "items": {
+            "$ref": "#/definitions/HealthCheckResponseDto"
+          }
+        },
+        "healthy": {
+          "type": "array",
+          "description": "List of healthy checks.",
+          "items": {
+            "$ref": "#/definitions/HealthCheckResponseDto"
+          }
+        }
+      }
+    }
+  }
+}

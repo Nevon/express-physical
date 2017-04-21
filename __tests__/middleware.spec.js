@@ -26,7 +26,7 @@ describe('When the checks complete', () => {
     test('It sends the serialized responses with 200 status code', () => {
       const statusMock = jest.fn()
       const res = {
-        send: jest.fn(),
+        json: jest.fn(),
         status: statusMock
       }
       statusMock.mockReturnValue(res)
@@ -42,13 +42,14 @@ describe('When the checks complete', () => {
 
       physical([check])({}, res, () => {})
 
-      expect(res.send).toHaveBeenCalledWith({
+      expect(res.json).toHaveBeenCalledWith({
         healthy: [{
           name: 'Test',
           healthy: true,
           type: 'SELF',
           actionable: false
-        }]
+        }],
+        unhealthy: []
       })
       expect(res.status).toHaveBeenCalledWith(200)
     })
@@ -58,7 +59,7 @@ describe('When the checks complete', () => {
     test('It sends the serialized responses with 500 status code', () => {
       const statusMock = jest.fn()
       const res = {
-        send: jest.fn(),
+        json: jest.fn(),
         status: statusMock
       }
       statusMock.mockReturnValue(res)
@@ -69,20 +70,21 @@ describe('When the checks complete', () => {
           healthy: false,
           type: physical.type.SELF,
           actionable: false,
-          severity: physical.severity.WARN,
+          severity: physical.severity.WARNING,
           message: 'Something is failing'
         })
       }
 
       physical([check])({}, res, () => {})
 
-      expect(res.send).toHaveBeenCalledWith({
+      expect(res.json).toHaveBeenCalledWith({
+        healthy: [],
         unhealthy: [{
           name: 'Failing Test',
           healthy: false,
           type: 'SELF',
           actionable: false,
-          severity: 'WARN',
+          severity: 'WARNING',
           message: 'Something is failing'
         }]
       })

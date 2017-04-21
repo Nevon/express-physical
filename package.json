@@ -7,15 +7,21 @@
   "author": "Tommy Brunn <tommy.brunn@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "npm run lint && npm run test:unit",
-    "test:unit": "NODE_ENV=test jest",
+    "test": "npm run test:static-analysis && npm run test:unit && npm run test:integration",
+    "test:static-analysis": "npm run lint",
+    "test:unit": "NODE_ENV=test jest /__tests__/",
     "test:unit:watch": "npm run test:unit -- --watch",
+    "test:integration": "NODE_ENV=test jest /__api_tests__/",
+    "test:integration:watch": "npm run test:integration -- --watch",
     "lint": "standard",
     "debug": "node debug --harmony ./node_modules/jest-cli/bin/jest.js --runInBand -i"
   },
   "devDependencies": {
+    "ajv": "^5.0.0",
+    "express": "^4.15.2",
     "jest": "^17.0.3",
-    "standard": "^8.6.0"
+    "standard": "^8.6.0",
+    "supertest": "^3.0.0"
   },
   "standard": {
     "globals": [

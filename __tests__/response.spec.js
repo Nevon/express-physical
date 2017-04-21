@@ -42,7 +42,7 @@ describe('Response', () => {
 
     describe('When the check is healthy', () => {
       test('It should throw an error if severity is provided', () => {
-        expect(() => response(Object.assign({}, healthyResponse, { severity: severities.WARN }))).toThrow()
+        expect(() => response(Object.assign({}, healthyResponse, { severity: severities.WARNING }))).toThrow()
       })
     })
 

@@ -1,5 +1,6 @@
 module.exports = {
-  WARN: 'WARN',
+  WARNING: 'WARNING',
+  WARN: 'WARNING', // Backwards compatibility
   CRITICAL: 'CRITICAL',
   DOWN: 'DOWN'
 }
