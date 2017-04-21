@@ -65,7 +65,7 @@ const middleware = physical([alwaysPassing, alwaysFailing])
     "type": "SELF",
     "healthy": false,
     "message": "What can you do...?",
-    "severity": "WARN"
+    "severity": "WARNING"
   }]
 }
 ```
