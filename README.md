@@ -3,6 +3,8 @@
 
 Healthcheck middleware for Express.
 
+[![asciicast](https://asciinema.org/a/115940.png)](https://asciinema.org/a/115940)
+
 ## Purpose
 
 `express-physical` is intended to be more or less a port of [physical](https://github.com/alde/physical). The intention is to have Dropwizard-style healthchecks for Node.
