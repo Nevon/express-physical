@@ -3,7 +3,7 @@
 
 Healthcheck middleware for Express.
 
-[![asciicast](https://asciinema.org/a/115940.png)](https://asciinema.org/a/115940)
+[![asciicast](https://asciinema.org/a/115940.png)](https://asciinema.org/a/115940?preload=1&autoplay=1&speed=1.7)
 
 ## Purpose
 
