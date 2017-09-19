@@ -168,7 +168,7 @@ const createDatabaseHealthCheck = (data) => (db) => (done) => {
   }
 }
 
-const canConnectToDatabase = ({
+const canConnectToDatabase = createDatabaseHealthCheck({
   name: 'Database connection',
   type: physical.type.INTERNAL_DEPENDENCY,
   dependentOn: {
