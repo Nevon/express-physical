@@ -20,29 +20,17 @@ const createResponse = responseData =>
   );
 
 module.exports = function(responseData) {
-  const {
-    name,
-    healthy,
-    actionable,
-    type,
-    severity,
-    message,
-    dependentOn,
-    info,
-    link
-  } = responseData;
-
   if (
     !validate(
-      name,
-      healthy,
-      actionable,
-      type,
-      severity,
-      message,
-      dependentOn,
-      info,
-      link
+      responseData.name,
+      responseData.healthy,
+      responseData.actionable,
+      responseData.type,
+      responseData.severity,
+      responseData.message,
+      responseData.dependentOn,
+      responseData.info,
+      responseData.link
     )
   ) {
     throw new InvalidHealthcheckResponse(

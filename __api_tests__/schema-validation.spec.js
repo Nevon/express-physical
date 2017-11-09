@@ -29,10 +29,14 @@ const failingCheck = () =>
     type: physical.type.SELF
   });
 
-describe("When the healthchecks are passing", () => {
+const createApp = checks => {
   const app = express();
+  app.use(path, physical(checks));
+  return app;
+};
 
-  app.use(path, physical([passingCheck]));
+describe("When the healthchecks are passing", () => {
+  const app = createApp([passingCheck]);
 
   test("The schema should be valid", () => {
     return request(app)
@@ -48,9 +52,7 @@ describe("When the healthchecks are passing", () => {
 });
 
 describe("When the healthchecks are all failing", () => {
-  const app = express();
-
-  app.use(path, physical([failingCheck]));
+  const app = createApp([failingCheck]);
 
   test("The schema should be valid", () => {
     return request(app)
