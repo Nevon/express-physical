@@ -8,10 +8,10 @@ module.exports = (checks = []) => {
   return (req, res, next) =>
     runChecks(
       (err, result) =>
-        (err
+        err
           ? next(err)
           : res
               .status(hasFailingChecks(result) ? 500 : 200)
-              .json(marshal(result)))
+              .json(marshal(result))
     );
 };
