@@ -1,5 +1,6 @@
 # Express Physical
-[![Build Status](https://travis-ci.org/Nevon/express-physical.svg?branch=master)](https://travis-ci.org/Nevon/express-physical) [![npm version](https://badge.fury.io/js/express-physical.svg)](https://badge.fury.io/js/express-physical)
+[![Build Status](https://travis-ci.org/Nevon/express-physical.svg?branch=master)](https://travis-ci.org/Nevon/express-physical) [![npm version](https://badge.fury.io/js/express-physical.svg)](https://badge.fury.io/js/express-physical) [![DeepScan Grade](https://deepscan.io/api/projects/1064/branches/2168/badge/grade.svg)](https://deepscan.io/dashboard/#view=project&pid=1064&bid=2168) [![Known Vulnerabilities](https://snyk.io/test/github/nevon/express-physical/badge.svg)](https://snyk.io/test/github/nevon/express-physical)
+
 
 Healthcheck middleware for Express.
 
@@ -105,6 +106,8 @@ If the check throws an error, it will be forwarded to the next middleware where 
 | `dependentOn` string | The name of a service that this check relies on | When the `type` is one of `INFRASTRUCTURE`, `INTERNAL_DEPENDENCY` and `EXTERNAL_DEPENDENCY`. Excluded otherwise.
 | `info` string{} | Object of any depth with additional info about this check | No |
 | `link` string | A URL to where more information can be found | No
+
+If your `physical.response` is invalid, an `InvalidHealthcheckResponse` error will be thrown. The original response data is available at `InvalidHealthcheckResponse.responseData`.
 
 ### `physical.type`
 
