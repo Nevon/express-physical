@@ -1,5 +1,6 @@
 const R = require("ramda");
 
+const InvalidHealthcheckResponse = require("./invalid-healthcheck-response");
 const validate = require("./validate");
 
 const createResponse = responseData =>
@@ -44,7 +45,10 @@ module.exports = function(responseData) {
       link
     )
   ) {
-    throw new Error("Invalid input for HealthCheckResponse", responseData);
+    throw new InvalidHealthcheckResponse(
+      "Invalid input for HealthCheckResponse",
+      responseData
+    );
   }
 
   return createResponse(responseData);
