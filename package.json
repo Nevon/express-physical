@@ -13,10 +13,11 @@
     "test:unit:watch": "npm run test:unit -- --watch",
     "test:integration": "NODE_ENV=test jest /__api_tests__/",
     "test:integration:watch": "npm run test:integration -- --watch",
-    "lint": "prettier-check {__api_tests__,__tests__,src}/**/*.js index.js",
-    "format": "prettier --write {__api_tests__,__tests__,src}/**/*.js index.js",
+    "lint": "find . -path ./node_modules -prune -o -name '*.js' -print0 | xargs -0 prettier-check",
+    "format": "find . -path ./node_modules -prune -o -name '*.js' -print0 | xargs -0 prettier --write",
     "debug": "node debug --harmony ./node_modules/jest-cli/bin/jest.js --runInBand -i",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "echo": "echo {__api_tests__,__tests__,src}/**.js"
   },
   "devDependencies": {
     "ajv": "^5.0.0",
