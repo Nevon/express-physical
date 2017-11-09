@@ -17,9 +17,9 @@ const validateType = R.curry(R.contains)(R.__, R.keys(types));
 const validateSeverity = R.curry(R.contains)(R.__, R.keys(severities));
 
 const validateDependentOn = type =>
-  (R.contains(type, DEPENDENT_ON_REQUIRED_TYPES)
+  R.contains(type, DEPENDENT_ON_REQUIRED_TYPES)
     ? R.allPass([R.is(String), R.compose(R.not, R.isEmpty)])
-    : R.isNil);
+    : R.isNil;
 
 const validateHealthyResponse = (
   name,
