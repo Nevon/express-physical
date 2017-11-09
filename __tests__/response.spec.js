@@ -2,6 +2,7 @@ const R = require("ramda");
 
 const response = require("../src/response/response");
 const serialize = require("../src/response/serialize");
+const InvalidHealthcheckResponse = require("../src/response/invalid-healthcheck-response");
 const { types, severities } = require("../src/constants");
 
 const baseResponse = {
@@ -38,7 +39,7 @@ describe("Response", () => {
           response(
             Object.assign({}, healthyResponse, { severity: severities.WARNING })
           )
-        ).toThrow();
+        ).toThrow(InvalidHealthcheckResponse);
       });
     });
 
@@ -47,7 +48,9 @@ describe("Response", () => {
 
       requiredFieldsWhenUnhealthy.forEach(field => {
         test(`It should throw an error when ${field} is missing`, () => {
-          expect(() => response(R.omit([field], unhealthyResponse))).toThrow();
+          expect(() => response(R.omit([field], unhealthyResponse))).toThrow(
+            InvalidHealthcheckResponse
+          );
         });
       });
     });
@@ -62,7 +65,7 @@ describe("Response", () => {
         test(type, () => {
           expect(() =>
             response(Object.assign({}, unhealthyResponse, { type }))
-          ).toThrow();
+          ).toThrow(InvalidHealthcheckResponse);
         });
       });
     });
@@ -74,7 +77,7 @@ describe("Response", () => {
             response(
               Object.assign({}, healthyResponse, { dependentOn: "foobar" })
             )
-          ).toThrow();
+          ).toThrow(InvalidHealthcheckResponse);
         });
       });
     });
