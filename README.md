@@ -1,5 +1,6 @@
 # Express Physical
-[![Build Status](https://travis-ci.org/Nevon/express-physical.svg?branch=master)](https://travis-ci.org/Nevon/express-physical) [![npm version](https://badge.fury.io/js/express-physical.svg)](https://badge.fury.io/js/express-physical) [![DeepScan Grade](https://deepscan.io/api/projects/1064/branches/2168/badge/grade.svg)](https://deepscan.io/dashboard/#view=project&pid=1064&bid=2168)
+[![Build Status](https://travis-ci.org/Nevon/express-physical.svg?branch=master)](https://travis-ci.org/Nevon/express-physical) [![npm version](https://badge.fury.io/js/express-physical.svg)](https://badge.fury.io/js/express-physical) [![DeepScan Grade](https://deepscan.io/api/projects/1064/branches/2168/badge/grade.svg)](https://deepscan.io/dashboard/#view=project&pid=1064&bid=2168) [![Known Vulnerabilities](https://snyk.io/test/github/nevon/express-physical/badge.svg)](https://snyk.io/test/github/nevon/express-physical)
+
 
 Healthcheck middleware for Express.
 
