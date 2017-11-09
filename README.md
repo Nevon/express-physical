@@ -106,6 +106,8 @@ If the check throws an error, it will be forwarded to the next middleware where 
 | `info` string{} | Object of any depth with additional info about this check | No |
 | `link` string | A URL to where more information can be found | No
 
+If your `physical.response` is invalid, an `InvalidHealthcheckResponse` error will be thrown. The original response data is available at `InvalidHealthcheckResponse.responseData`.
+
 ### `physical.type`
 
 Constants representing the type of a check.
