@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "async": "^2.1.4",
-    "ramda": "^0.22.1",
+    "ramda": "^0.25.0",
     "snakecase-keys": "^1.1.0"
   },
   "jest": {
