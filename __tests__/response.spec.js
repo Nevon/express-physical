@@ -75,7 +75,10 @@ describe("Response", () => {
         test(type, () => {
           expect(() =>
             response(
-              Object.assign({}, healthyResponse, { dependentOn: "foobar" })
+              Object.assign({}, healthyResponse, {
+                type,
+                dependentOn: "foobar"
+              })
             )
           ).toThrow(InvalidHealthcheckResponse);
         });
