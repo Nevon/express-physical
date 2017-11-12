@@ -13,6 +13,7 @@
     "test:unit:watch": "npm run test:unit -- --watch",
     "test:integration": "NODE_ENV=test jest /__api_tests__/",
     "test:integration:watch": "npm run test:integration -- --watch",
+    "test:memory": "node ./scripts/memory/test.js",
     "lint": "find . -path ./node_modules -prune -o -name '*.js' -print0 | xargs -0 prettier-check",
     "format": "find . -path ./node_modules -prune -o -name '*.js' -print0 | xargs -0 prettier --write",
     "debug": "node debug --harmony ./node_modules/jest-cli/bin/jest.js --runInBand -i",
@@ -24,6 +25,7 @@
     "husky": "^0.14.3",
     "jest": "^21.2.1",
     "lint-staged": "^4.3.0",
+    "memwatch-next": "^0.3.0",
     "prettier": "^1.8.2",
     "prettier-check": "^2.0.0",
     "supertest": "^3.0.0"

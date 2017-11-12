@@ -7,6 +7,7 @@ env:
   - STAGE=static-analysis
   - STAGE=unit
   - STAGE=integration
+  - STAGE=memory
 script: "npm run test:$STAGE"
 deploy:
   provider: npm
