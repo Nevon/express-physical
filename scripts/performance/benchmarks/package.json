@@ -6,6 +6,10 @@
   "devDependencies": {
     "beautify-benchmark": "^0.2.4",
     "benchmark": "^2.1.4",
-    "express-physical": "0.3.1"
+    "express-physical": "0.3.1",
+    "supertest": "^3.0.0"
+  },
+  "dependencies": {
+    "express": "^4.16.2"
   }
 }
