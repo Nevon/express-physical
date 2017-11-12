@@ -1,3 +1,4 @@
+"use strict";
 const matcherUsing = require("./matcher");
 
 module.exports = ajv =>

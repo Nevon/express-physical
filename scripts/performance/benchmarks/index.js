@@ -1,3 +1,4 @@
+"use strict";
 const Benchmark = require("benchmark");
 const bb = require("beautify-benchmark");
 

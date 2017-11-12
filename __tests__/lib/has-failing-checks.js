@@ -1,3 +1,4 @@
+"use strict";
 const hasFailingChecks = require("../../src/lib/has-failing-checks");
 
 const baseResponse = {

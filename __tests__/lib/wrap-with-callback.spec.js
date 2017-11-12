@@ -1,3 +1,4 @@
+"use strict";
 const wrapWithCallbackIfNeeded = require("../../src/lib/wrap-with-callback");
 
 describe("When called on a function that does not take a callback", () => {

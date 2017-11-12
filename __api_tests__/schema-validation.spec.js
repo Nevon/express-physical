@@ -1,3 +1,4 @@
+"use strict";
 const Ajv = require("ajv");
 const request = require("supertest");
 const express = require("express");
