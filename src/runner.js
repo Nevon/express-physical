@@ -1,6 +1,6 @@
 "use strict";
 const R = require("ramda");
-const parallel = require("async/parallel");
+const { parallel } = require("neo-async");
 const wrapWithCallbackIfNeeded = require("./lib/wrap-with-callback");
 
 const toParallel = check => cb => {
