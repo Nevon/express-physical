@@ -2,5 +2,6 @@
 const R = require("ramda");
 
 const isUnhealthy = check => check.healthy === false;
+const hasUnhealthy = R.any(isUnhealthy);
 
-module.exports = (checks = []) => R.any(isUnhealthy)(checks);
+module.exports = (checks = []) => hasUnhealthy(checks);

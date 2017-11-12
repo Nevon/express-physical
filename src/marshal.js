@@ -3,15 +3,17 @@ const R = require("ramda");
 
 const serialize = require("./response/serialize");
 
-const byHealth = R.groupBy(
-  response => (response.healthy ? "healthy" : "unhealthy")
-);
+const HEALTHY_KEY = "healthy";
+const UNHEALTHY_KEY = "unhealthy";
+
+const healthy = ({ healthy }) => (healthy ? HEALTHY_KEY : UNHEALTHY_KEY);
+const byHealth = R.groupBy(healthy);
 const serializeAll = R.map(serialize);
 const addRequiredEmptyGroups = response =>
   Object.assign(
     {
-      healthy: [],
-      unhealthy: []
+      [HEALTHY_KEY]: [],
+      [UNHEALTHY_KEY]: []
     },
     response
   );

@@ -11,7 +11,7 @@ const toParallel = check => cb => {
   }
 };
 
-module.exports = checks =>
-  R.curry(parallel)(
-    checks.map(R.compose(toParallel, wrapWithCallbackIfNeeded))
-  );
+const curriedParallel = R.curry(parallel);
+const toParallelAsync = R.compose(toParallel, wrapWithCallbackIfNeeded);
+
+module.exports = checks => curriedParallel(checks.map(toParallelAsync));
