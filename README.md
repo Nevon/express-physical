@@ -181,3 +181,29 @@ const canConnectToDatabase = createDatabaseHealthCheck({
 
 app.use('/healthcheck', physical([canConnectToDatabase]))
 ```
+
+## Contributing
+
+Contributions are more than welcome. However, if your contribution goes beyond bug fixing, it is recommended that you first [create an issue](https://github.com/Nevon/express-physical/issues/new), in order to agree on a solution before investing time into implementing something that may not be merged. Changes that affect the schema are very unlikely to be accepted.
+
+### Testing
+
+Contributions are expected to be tested to a reasonable degree.
+
+* Run unit tests with `npm run test:unit`
+* Run API tests with `npm run test:integration`
+* Run the linter with `npm run lint`
+
+### Formatting
+
+Formatting is done using [Prettier](https://github.com/prettier/prettier). There is a pre-commit hook that should format your code automatically, but if you want to manually format it, run `npm run format`.
+
+### Benchmarks
+
+If you are concerned with the performance implications of your change, there are benchmarks that you can run to find out. In order to run them, you need to have `docker` and `docker-compose` installed. Information on [how to install Docker is available here](https://docs.docker.com/compose/install/).
+
+To run the benchmarks, run `npm run benchmark`. The benchmarks will be run against your local branch and a reference version of physical. Some variance is to be expected, but if your change has a drastic impact, consider creating an issue to discuss it if you need help.
+
+To change the reference version of physical that you want to run the benchmarks against, change the version in [scripts/performance/benchmarks/package.json](scripts/performance/benchmarks/package.json) and run `npm run benchmark:rebuild`.
+
+**📣 Note that the benchmarks are a work in progress. Contributions for adding more benchmarks are very welcome!** 

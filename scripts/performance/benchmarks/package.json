@@ -1,0 +1,11 @@
+{
+  "name": "benchmarks",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "beautify-benchmark": "^0.2.4",
+    "benchmark": "^2.1.4",
+    "express-physical": "0.3.1"
+  }
+}
