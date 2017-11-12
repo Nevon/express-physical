@@ -16,20 +16,19 @@ const RESPONSE_FORMAT = {
   link: undefined
 };
 
+const addEmptyFields = data => Object.assign({}, RESPONSE_FORMAT, data);
+
 const createResponse = responseData =>
   R.pick(Object.keys(RESPONSE_FORMAT), responseData);
 
-const someFail = results =>
-  R.not(R.all(R.equals(true), Object.values(results)));
-
+const someFail = R.compose(R.not, R.all(R.equals(true)));
 const isMessage = R.compose(R.not, R.is(Boolean));
 const firstMessage = R.compose(R.head, R.filter(isMessage), R.values);
 
 module.exports = function(responseData) {
-  const validatable = Object.assign({}, RESPONSE_FORMAT, responseData);
-  const validationResult = validate(validatable);
+  const validationResult = validate(addEmptyFields(responseData));
 
-  if (someFail(validationResult)) {
+  if (someFail(Object.values(validationResult))) {
     throw new InvalidHealthcheckResponse(
       firstMessage(validationResult),
       responseData
