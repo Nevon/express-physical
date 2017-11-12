@@ -3,10 +3,13 @@ node_js:
   - node
   - lts/*
 cache: yarn
+services:
+  - docker
 env:
   - STAGE=static-analysis
   - STAGE=unit
   - STAGE=integration
+  - STAGE=benchmark
 script: "npm run test:$STAGE"
 deploy:
   provider: npm

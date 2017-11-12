@@ -13,6 +13,7 @@
     "test:unit:watch": "npm run test:unit -- --watch",
     "test:integration": "NODE_ENV=test jest /__api_tests__/",
     "test:integration:watch": "npm run test:integration -- --watch",
+    "test:benchmark": "npm run benchmark",
     "benchmark": "docker-compose -f scripts/performance/docker-compose.yml up",
     "benchmark:rebuild": "npm run benchmark -- --build",
     "lint": "find . -path ./node_modules -prune -o -name '*.js' -print0 | xargs -0 prettier-check",
