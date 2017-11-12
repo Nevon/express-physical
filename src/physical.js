@@ -1,3 +1,4 @@
+"use strict";
 const { types, severities } = require("./constants");
 const response = require("./response/response");
 const middleware = require("./middleware");

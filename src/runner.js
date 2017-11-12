@@ -1,3 +1,4 @@
+"use strict";
 const R = require("ramda");
 const parallel = require("async/parallel");
 const wrapWithCallbackIfNeeded = require("./lib/wrap-with-callback");

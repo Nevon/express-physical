@@ -1,3 +1,4 @@
+"use strict";
 const runner = require("./runner");
 const marshal = require("./marshal");
 const hasFailingChecks = require("./lib/has-failing-checks");

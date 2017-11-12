@@ -1,3 +1,4 @@
+"use strict";
 module.exports = ajv => (response, schema) => {
   const pass = ajv.validate(schema, response);
 

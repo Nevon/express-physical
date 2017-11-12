@@ -1,3 +1,4 @@
+"use strict";
 module.exports = {
   WARNING: "WARNING",
   WARN: "WARNING", // Backwards compatibility

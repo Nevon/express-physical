@@ -1,3 +1,4 @@
+"use strict";
 const InvalidHealthCheckResponse = require("../src/response/invalid-healthcheck-response");
 
 describe("InvalidHealthCheckResponse", () => {

@@ -1,3 +1,4 @@
+"use strict";
 const R = require("ramda");
 const snakeCaseKeys = require("snakecase-keys");
 
