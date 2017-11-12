@@ -1,5 +1,5 @@
 "use strict";
-const R = require("ramda");
+const { compose, not, all, equals, is, head, filter, pick } = require("ramda");
 
 const InvalidHealthcheckResponse = require("./invalid-healthcheck-response");
 const validate = require("./validate");
@@ -19,11 +19,11 @@ const RESPONSE_FORMAT = {
 const addEmptyFields = data => Object.assign({}, RESPONSE_FORMAT, data);
 
 const createResponse = responseData =>
-  R.pick(Object.keys(RESPONSE_FORMAT), responseData);
+  pick(Object.keys(RESPONSE_FORMAT), responseData);
 
-const someFail = R.compose(R.not, R.all(R.equals(true)));
-const isMessage = R.compose(R.not, R.is(Boolean));
-const firstMessage = R.compose(R.head, R.filter(isMessage), R.values);
+const someFail = compose(not, all(equals(true)));
+const isMessage = compose(not, is(Boolean));
+const firstMessage = compose(head, filter(isMessage), Object.values);
 
 module.exports = function(responseData) {
   const validationResult = validate(addEmptyFields(responseData));

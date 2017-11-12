@@ -1,5 +1,4 @@
 "use strict";
-
 const createSuffix = healthy =>
   `when healthcheck is ${healthy ? "healthy" : "unhealthy"}`;
 const SUFFIX_HEALTHY_MSG = createSuffix(true);

@@ -1,5 +1,5 @@
 "use strict";
-const R = require("ramda");
+const { curry, compose } = require("ramda");
 const { parallel } = require("neo-async");
 const wrapWithCallbackIfNeeded = require("./lib/wrap-with-callback");
 
@@ -11,7 +11,7 @@ const toParallel = check => cb => {
   }
 };
 
-const curriedParallel = R.curry(parallel);
-const toParallelAsync = R.compose(toParallel, wrapWithCallbackIfNeeded);
+const curriedParallel = curry(parallel);
+const toParallelAsync = compose(toParallel, wrapWithCallbackIfNeeded);
 
 module.exports = checks => curriedParallel(checks.map(toParallelAsync));

@@ -1,5 +1,5 @@
 "use strict";
-const R = require("ramda");
+const { isNil } = require("ramda");
 
 const { notNil, oneOf } = require("./utils");
 const {
@@ -18,7 +18,7 @@ const oneOfSeverities = oneOf(severities);
 
 module.exports = ({ healthy }) =>
   healthy === true
-    ? [[R.isNil, SHOULD_BE_OMITTED_MESSAGE]]
+    ? [[isNil, SHOULD_BE_OMITTED_MESSAGE]]
     : [
         [notNil, IS_REQUIRED_MESSAGE],
         [oneOfSeverities, IS_ONE_OF_SEVERITIES_MESSAGE]

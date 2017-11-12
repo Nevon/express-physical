@@ -1,12 +1,21 @@
 "use strict";
-const R = require("ramda");
+const {
+  is,
+  compose,
+  curry,
+  contains,
+  not,
+  isEmpty,
+  isNil,
+  __
+} = require("ramda");
 
 const utils = {
-  isString: R.is(String),
-  isBoolean: R.is(Boolean),
-  notEmpty: R.compose(R.not, R.isEmpty),
-  notNil: R.compose(R.not, R.isNil),
-  oneOf: collection => R.curry(R.contains)(R.__, R.keys(collection))
+  isString: is(String),
+  isBoolean: is(Boolean),
+  notEmpty: compose(not, isEmpty),
+  notNil: compose(not, isNil),
+  oneOf: collection => curry(contains)(__, Object.keys(collection))
 };
 
 module.exports = utils;

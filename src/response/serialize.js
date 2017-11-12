@@ -1,8 +1,17 @@
 "use strict";
-const R = require("ramda");
+const {
+  compose,
+  not,
+  isNil,
+  isEmpty,
+  prop,
+  when,
+  either,
+  is
+} = require("ramda");
 const snakeCaseKeys = require("snakecase-keys");
 
-const nonEmpty = R.compose(R.not, R.either(R.isNil, R.isEmpty));
+const nonEmpty = compose(not, either(isNil, isEmpty));
 
 const removeEmptyFields = function(obj) {
   return Object.keys(obj).reduce((acc, field) => {
@@ -14,15 +23,12 @@ const removeEmptyFields = function(obj) {
   }, {});
 };
 
-const dependentOnPresent = R.compose(R.is(String), R.prop("dependentOn"));
+const dependentOnPresent = compose(is(String), prop("dependentOn"));
 const formatDependentOn = obj =>
   Object.assign(obj, { dependentOn: { serviceName: obj.dependentOn } });
-const formatDependentOnIfPresent = R.when(
-  dependentOnPresent,
-  formatDependentOn
-);
+const formatDependentOnIfPresent = when(dependentOnPresent, formatDependentOn);
 
-module.exports = R.compose(
+module.exports = compose(
   snakeCaseKeys,
   formatDependentOnIfPresent,
   removeEmptyFields
