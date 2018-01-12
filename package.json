@@ -22,7 +22,7 @@
     "precommit": "lint-staged"
   },
   "devDependencies": {
-    "ajv": "^6.0.0",
+    "ajv": "^6.0.1",
     "express": "^4.16.2",
     "husky": "^0.14.3",
     "jest": "^22.0.5",
