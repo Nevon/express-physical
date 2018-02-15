@@ -15,6 +15,7 @@ const notEmpty = R.compose(R.not, R.isEmpty);
 const notNil = R.compose(R.not, R.isNil);
 const isString = R.is(String);
 const isBoolean = R.is(Boolean);
+const isObject = R.is(Object);
 const oneOf = collection => R.curry(R.contains)(R.__, R.keys(collection));
 
 const createSuffix = healthy =>
@@ -27,6 +28,7 @@ const unhealthyCheckMessage = msg => `${msg} ${SUFFIX_UNHEALTHY_MSG}`;
 
 const commonRules = input => ({
   healthy: [[isBoolean, "Healthy should be a boolean"]],
+  info: [[R.either(R.isNil, isObject), "Info should be an object"]],
   dependentOn: R.contains(input.type, DEPENDENT_ON_REQUIRED_TYPES)
     ? [
         [isString, "DependentOn should be a string"],

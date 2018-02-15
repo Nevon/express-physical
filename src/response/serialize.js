@@ -17,4 +17,15 @@ const formatDependentOn = R.when(
   obj => Object.assign(obj, { dependentOn: { serviceName: obj.dependentOn } })
 );
 
-module.exports = R.compose(snakeCaseKeys, formatDependentOn, removeEmptyFields);
+// `info` is also available as `additional_info` for compatibility reasons
+const copyInfoField = R.when(
+  R.compose(R.curry(R.is(Object)), R.curry(R.prop("info"))),
+  obj => Object.assign(obj, { additionalInfo: obj.info })
+);
+
+module.exports = R.compose(
+  snakeCaseKeys,
+  formatDependentOn,
+  copyInfoField,
+  removeEmptyFields
+);
