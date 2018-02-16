@@ -104,7 +104,7 @@ If the check throws an error, it will be forwarded to the next middleware where 
 | `actionable` boolean | Whether or not the owner can act on this check failing | Yes |
 | `message` string | | When the check is unhealthy |
 | `dependentOn` string | The name of a service that this check relies on | When the `type` is one of `INFRASTRUCTURE`, `INTERNAL_DEPENDENCY` and `EXTERNAL_DEPENDENCY`. Excluded otherwise.
-| `info` string{} | Object of any depth with additional info about this check | No |
+| `info` object{string,object} | Object of any depth with additional info about this check. | No |
 | `link` string | A URL to where more information can be found | No
 
 If your `physical.response` is invalid, an `InvalidHealthcheckResponse` error will be thrown. The original response data is available at `InvalidHealthcheckResponse.responseData`.

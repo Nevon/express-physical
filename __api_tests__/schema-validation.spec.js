@@ -27,7 +27,13 @@ const failingCheck = () =>
     healthy: false,
     severity: physical.severity.WARNING,
     message: "Something failed",
-    type: physical.type.SELF
+    type: physical.type.SELF,
+    info: {
+      components: {
+        a: "Failing",
+        b: "Not failing"
+      }
+    }
   });
 
 const createApp = checks => {
