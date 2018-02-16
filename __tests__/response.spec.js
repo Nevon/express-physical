@@ -10,7 +10,11 @@ const baseResponse = {
   name: "Name",
   actionable: true,
   type: types.SELF,
-  info: { foo: "bar" },
+  info: {
+    foo: {
+      barBaz: true
+    }
+  },
   link: "http://google.com"
 };
 
@@ -143,6 +147,19 @@ describe("Response", () => {
 
       expect(fields.includes("info")).toBe(false);
       expect(fields.includes("link")).toBe(false);
+    });
+
+    test("should not reformat the keys of the `info` object", () => {
+      const info = {
+        servicingAPIResponse: {
+          status: 500
+        }
+      };
+      const actual = serializeResponse(
+        Object.assign({}, unhealthyResponse, { info })
+      );
+
+      expect(actual.info).toEqual(info);
     });
   });
 });
