@@ -30,7 +30,32 @@ describe("Response", () => {
 
     requiredFields.forEach(field => {
       test(`It should throw an error when ${field} is missing`, () => {
-        expect(() => response(R.omit([field], healthyResponse)));
+        expect(() => response(R.omit([field], healthyResponse))).toThrow(
+          InvalidHealthcheckResponse
+        );
+      });
+    });
+
+    const infoFields = ["info", "additional_info"];
+    infoFields.forEach(field => {
+      test(`It should throw an error when ${field} is not an object`, () => {
+        expect(() =>
+          response(
+            Object.assign({}, healthyResponse, { info: "not an object" })
+          )
+        ).toThrow(InvalidHealthcheckResponse);
+      });
+
+      test(`It should not throw an error when ${field} is omitted`, () => {
+        expect(() => response(R.omit([field], healthyResponse))).not.toThrow();
+      });
+
+      test(`It should not throw an error when ${field} is an object`, () => {
+        expect(() =>
+          response(
+            Object.assign({}, healthyResponse, { info: { foo: { bar: true } } })
+          )
+        ).not.toThrow();
       });
     });
 
@@ -101,6 +126,12 @@ describe("Response", () => {
       expected["service_name"] = "foo";
 
       expect(actual["dependent_on"]).toEqual(expected);
+    });
+
+    test("should copy info to additionalInfo", () => {
+      const actual = serializeResponse(healthyResponse);
+
+      expect(actual["additional_info"]).toEqual(actual.info);
     });
 
     test("should remove empty fields", () => {
