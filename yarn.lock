@@ -3561,8 +3561,8 @@ slice-ansi@0.0.4:
   resolved "https://registry.yarnpkg.com/slice-ansi/-/slice-ansi-0.0.4.tgz#edbf8903f66f7ce2f8eafd6ceed65e264c831b35"
 
 snakecase-keys@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/snakecase-keys/-/snakecase-keys-1.1.0.tgz#1adb17ddf7531c210cc293336f93d0ef1f8e73b8"
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/snakecase-keys/-/snakecase-keys-1.1.1.tgz#db08e34d0a81fda4ac413a935f6ca7b1bee594c2"
   dependencies:
     map-obj "~2.0.0"
     to-snake-case "~0.1.2"
