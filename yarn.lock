@@ -3175,8 +3175,8 @@ prettier-check@^2.0.0:
     execa "^0.6.0"
 
 prettier@^1.10.2:
-  version "1.11.1"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.11.1.tgz#61e43fc4cd44e68f2b0dfc2c38cd4bb0fccdcc75"
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.14.1.tgz#4ead68e66b5ec9e771de311570c90da822f5a17a"
 
 pretty-format@^23.0.1:
   version "23.0.1"
