@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "async": "^2.6.0",
-    "ramda": "^0.25.0",
+    "ramda": "^0.26.0",
     "snakecase-keys": "^2.0.0",
     "spected": "^0.7.0"
   },
