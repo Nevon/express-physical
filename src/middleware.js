@@ -7,12 +7,9 @@ module.exports = (checks = []) => {
   const runChecks = runner(checks);
 
   return (req, res, next) =>
-    runChecks(
-      (err, result) =>
-        err
-          ? next(err)
-          : res
-              .status(hasFailingChecks(result) ? 500 : 200)
-              .json(marshal(result))
+    runChecks((err, result) =>
+      err
+        ? next(err)
+        : res.status(hasFailingChecks(result) ? 500 : 200).json(marshal(result))
     );
 };

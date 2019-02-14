@@ -117,7 +117,10 @@ describe("Response", () => {
   });
 
   describe("serialization", () => {
-    const serializeResponse = R.compose(serialize, response);
+    const serializeResponse = R.compose(
+      serialize,
+      response
+    );
 
     test("should format dependentOn as an object", () => {
       const actual = serializeResponse(

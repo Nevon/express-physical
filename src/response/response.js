@@ -22,8 +22,15 @@ const createResponse = responseData =>
 const someFail = results =>
   R.not(R.all(R.equals(true), Object.values(results)));
 
-const isMessage = R.compose(R.not, R.is(Boolean));
-const firstMessage = R.compose(R.head, R.filter(isMessage), R.values);
+const isMessage = R.compose(
+  R.not,
+  R.is(Boolean)
+);
+const firstMessage = R.compose(
+  R.head,
+  R.filter(isMessage),
+  R.values
+);
 
 module.exports = function(responseData) {
   const validatable = Object.assign({}, RESPONSE_FORMAT, responseData);

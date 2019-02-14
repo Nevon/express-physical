@@ -13,5 +13,10 @@ const toParallel = check => cb => {
 
 module.exports = checks =>
   R.curry(parallel)(
-    checks.map(R.compose(toParallel, wrapWithCallbackIfNeeded))
+    checks.map(
+      R.compose(
+        toParallel,
+        wrapWithCallbackIfNeeded
+      )
+    )
   );

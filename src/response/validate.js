@@ -11,8 +11,14 @@ const DEPENDENT_ON_REQUIRED_TYPES = [
   types.EXTERNAL_DEPENDENCY
 ];
 
-const notEmpty = R.compose(R.not, R.isEmpty);
-const notNil = R.compose(R.not, R.isNil);
+const notEmpty = R.compose(
+  R.not,
+  R.isEmpty
+);
+const notNil = R.compose(
+  R.not,
+  R.isNil
+);
 const isString = R.is(String);
 const isBoolean = R.is(Boolean);
 const isObject = R.is(Object);
