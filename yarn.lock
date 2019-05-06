@@ -3528,8 +3528,9 @@ spdx-license-ids@^1.0.2:
   resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-1.2.2.tgz#c9df7a3424594ade6bd11900d596696dc06bac57"
 
 spected@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/spected/-/spected-0.7.0.tgz#6fa3a4b92d65f1f398730c67c8ca50995984336c"
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/spected/-/spected-0.7.1.tgz#ffc077902bad83e6e24528d1d35790520b81795f"
+  integrity sha512-phidDkvnlaRDDfBmlQez8L0kQ9/RIqddmcz1QbBg7askbwIXTpB54Quq2CHFtN6rew2QnHk8VfNqZ5cURzV94w==
   dependencies:
     ramda "^0.24.1"
 
