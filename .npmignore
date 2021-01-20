@@ -1,5 +1,6 @@
 .editorconfig
 __tests__
+__api_tests__
 .travis-yml
 README.md
 scripts
