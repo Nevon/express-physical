@@ -59,7 +59,7 @@ describe("When the checks complete", () => {
   });
 
   describe("With unhealthy checks", () => {
-    test("It sends the serialized responses with 500 status code", () => {
+    test("It sends the serialized responses with 200 status code", () => {
       const statusMock = jest.fn();
       const res = {
         json: jest.fn(),
@@ -93,7 +93,7 @@ describe("When the checks complete", () => {
           }
         ]
       });
-      expect(res.status).toHaveBeenCalledWith(500);
+      expect(res.status).toHaveBeenCalledWith(200);
     });
   });
 });
