@@ -1,6 +1,6 @@
 {
   "name": "express-physical",
-  "version": "0.5.3",
+  "version": "1.0.0",
   "description": "Healthcheck middleware for Express 🌡",
   "main": "index.js",
   "repository": "git@github.com:Nevon/express-physical.git",
