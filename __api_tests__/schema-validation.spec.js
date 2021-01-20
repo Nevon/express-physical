@@ -64,7 +64,7 @@ describe("When the healthchecks are all failing", () => {
   test("The schema should be valid", () => {
     return request(app)
       .get(path)
-      .expect(500)
+      .expect(200)
       .expect("Content-Type", /application\/json/)
       .then(response => {
         expect(response.body).toMatchSchema({
@@ -82,7 +82,7 @@ describe("When some of the checks are failing", () => {
   test("The schema should be valid", () => {
     return request(app)
       .get(path)
-      .expect(500)
+      .expect(200)
       .expect("Content-Type", /application\/json/)
       .then(response => {
         expect(response.body).toMatchSchema({

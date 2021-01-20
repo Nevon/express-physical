@@ -36,7 +36,7 @@ const passingCheck = () => physical.response({
 app.use('/healthcheck', physical([passingCheck]))
 ```
 
-`/healthcheck` will respond with the result of all checks, with a status code of 200 if all are healthy, and 500 if one or more checks are unhealthy.
+`/healthcheck` will respond with the result of all checks, with a status code of 200.
 
 ## API
 
