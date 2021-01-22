@@ -19,7 +19,9 @@
     "lint": "find . -path ./node_modules -prune -o -name '*.js' -print0 | xargs -0 prettier-check",
     "format": "find . -path ./node_modules -prune -o -name '*.js' -print0 | xargs -0 prettier --write",
     "debug": "node debug --harmony ./node_modules/jest-cli/bin/jest.js --runInBand -i",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "devDependencies": {
     "ajv": "^6.1.1",
@@ -35,7 +37,8 @@
     "async": "^2.6.0",
     "ramda": "^0.26.1",
     "snakecase-keys": "^2.0.0",
-    "spected": "^0.7.0"
+    "spected": "^0.7.0",
+    "snyk": "^1.189.0"
   },
   "jest": {
     "verbose": true,
@@ -46,5 +49,6 @@
       "prettier --write",
       "git add"
     ]
-  }
+  },
+  "snyk": true
 }
