@@ -2431,9 +2431,10 @@ map-cache@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/map-cache/-/map-cache-0.2.2.tgz#c32abd0bd6525d9b051645bb4f26ac5dc98a0dbf"
 
-map-obj@~3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-3.0.0.tgz#4221cc62360f88c0735f9e7c0813bd889657f490"
+map-obj@^4.1.0:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-4.2.1.tgz#e4ea399dbc979ae735c83c863dd31bdf364277b7"
+  integrity sha512-+WA2/1sPmDj1dlvvJmB5G6JKfY9dpn7EVBUL06+y6PoljPkh+6V1QihwxNkbcGxCRjt2b0F9K0taiCuo7MbdFQ==
 
 map-visit@^1.0.0:
   version "1.0.0"
@@ -3452,12 +3453,13 @@ slice-ansi@0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/slice-ansi/-/slice-ansi-0.0.4.tgz#edbf8903f66f7ce2f8eafd6ceed65e264c831b35"
 
-snakecase-keys@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/snakecase-keys/-/snakecase-keys-2.1.0.tgz#619833e8ff730a74eb0348eaa2f871f97bc92297"
+snakecase-keys@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/snakecase-keys/-/snakecase-keys-4.0.1.tgz#1ba511be38226a2a1d54bb433666bc127458eeed"
+  integrity sha512-oZsXfKe9oe/Cb7EEReYtYfWM+2kR67Vt0yYNjckh1PsEoP/zDoezPN6GLtDba7EBGujGw5vl/h5se/RiBdWUKA==
   dependencies:
-    map-obj "~3.0.0"
-    to-snake-case "~1.0.0"
+    map-obj "^4.1.0"
+    to-snake-case "^1.0.0"
 
 snapdragon-node@^2.0.1:
   version "2.1.1"
@@ -3801,9 +3803,10 @@ to-regex@^3.0.2:
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
 
-to-snake-case@~1.0.0:
+to-snake-case@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/to-snake-case/-/to-snake-case-1.0.0.tgz#ce746913897946019a87e62edfaeaea4c608ab8c"
+  integrity sha1-znRpE4l5RgGah+Yu366upMYIq4w=
   dependencies:
     to-space-case "^1.0.0"
 
