@@ -34,7 +34,7 @@
   "dependencies": {
     "async": "^2.6.0",
     "ramda": "^0.26.1",
-    "snakecase-keys": "^2.0.0",
+    "snakecase-keys": "^4.0.2",
     "spected": "^0.7.0"
   },
   "jest": {
