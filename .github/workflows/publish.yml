@@ -1,6 +1,4 @@
 name: Publish
-author: Nevon
-description: Runs tests and publishes to npm on Github release created
 
 on:
   release:

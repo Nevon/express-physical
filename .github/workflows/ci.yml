@@ -1,6 +1,4 @@
 name: Test
-author: Nevon
-description: Runs tests on master branch and PRs
 
 on:
   push:
