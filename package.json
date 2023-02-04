@@ -35,7 +35,7 @@
     "async": "^2.6.0",
     "ramda": "^0.27.2",
     "snakecase-keys": "^2.0.0",
-    "spected": "^0.7.0"
+    "spected": "^0.7.2"
   },
   "jest": {
     "verbose": true,
