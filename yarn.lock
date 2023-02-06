@@ -3063,14 +3063,15 @@ qs@~6.5.1:
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.1.tgz#349cdf6eef89ec45c12d7d5eb3fc0c870343a6d8"
 
-ramda@^0.24.1:
-  version "0.24.1"
-  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.24.1.tgz#c3b7755197f35b8dc3502228262c4c91ddb6b857"
-
 ramda@^0.27.2:
   version "0.27.2"
   resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.27.2.tgz#84463226f7f36dc33592f6f4ed6374c48306c3f1"
   integrity sha512-SbiLPU40JuJniHexQSAgad32hfwd+DRUdwF2PlVuI5RZD0/vahUco7R8vD86J/tcEKKF9vZrUVwgtmGCqlCKyA==
+
+ramda@^0.28.0:
+  version "0.28.0"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.28.0.tgz#acd785690100337e8b063cab3470019be427cc97"
+  integrity sha512-9QnLuG/kPVgWvMQ4aODhsBUFKOUmnbUnsSXACv+NCQZcHbeb+v8Lodp8OVxtRULN1/xOyYLLaL6npE6dMq5QTA==
 
 range-parser@~1.2.0:
   version "1.2.0"
@@ -3548,11 +3549,12 @@ spdx-license-ids@^1.0.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-1.2.2.tgz#c9df7a3424594ade6bd11900d596696dc06bac57"
 
-spected@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/spected/-/spected-0.7.0.tgz#6fa3a4b92d65f1f398730c67c8ca50995984336c"
+spected@^0.7.2:
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/spected/-/spected-0.7.2.tgz#57a04dbff124156536adfa6a4ac3c27130edcb60"
+  integrity sha512-K2r3yop+49W+mQKnXdwy/nsfUICTHhYqqJq99xmIc5Cfzx8wwKtmlDYYusdrA8/PQTLvzeEwBe9LHQIZ3JpkCw==
   dependencies:
-    ramda "^0.24.1"
+    ramda "^0.28.0"
 
 split-string@^3.0.1, split-string@^3.0.2:
   version "3.1.0"
