@@ -1,6 +1,6 @@
 {
   "name": "express-physical",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Healthcheck middleware for Express 🌡",
   "main": "index.js",
   "repository": "git@github.com:Nevon/express-physical.git",
@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "async": "^3.2.2",
-    "ramda": "^0.27.2",
+    "ramda": "^0.29.0",
     "snakecase-keys": "^2.0.0",
     "spected": "^0.7.2"
   },
