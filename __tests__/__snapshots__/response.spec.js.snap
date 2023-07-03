@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Response Validation It should throw an error when actionable is missing 1`] = `"Actionable is required when healthcheck is healthy at "actionable""`;
+
+exports[`Response Validation It should throw an error when additional_info is not an object 1`] = `"Info should be an object at "info""`;
+
+exports[`Response Validation It should throw an error when info is not an object 1`] = `"Info should be an object at "info""`;
+
+exports[`Response Validation It should throw an error when name is missing 1`] = `"Name is required when healthcheck is healthy at "name""`;
+
+exports[`Response Validation It should throw an error when type is missing 1`] = `"Type is required when healthcheck is healthy at "type""`;
+
+exports[`Response Validation When the result is unhealthy It should throw an error when message is missing 1`] = `"Message is required when healthcheck is unhealthy at "message""`;
+
+exports[`Response Validation When the result is unhealthy It should throw an error when severity is missing 1`] = `"Severity is required when healthcheck is unhealthy at "severity""`;
+
+exports[`Response Validation dependentOn is required for type EXTERNAL_DEPENDENCY 1`] = `"DependentOn is required when type is one of INFRASTRUCTURE, INTERNAL_DEPENDENCY, EXTERNAL_DEPENDENCY at "dependentOn""`;
+
+exports[`Response Validation dependentOn is required for type INFRASTRUCTURE 1`] = `"DependentOn is required when type is one of INFRASTRUCTURE, INTERNAL_DEPENDENCY, EXTERNAL_DEPENDENCY at "dependentOn""`;
+
+exports[`Response Validation dependentOn is required for type INTERNAL_DEPENDENCY 1`] = `"DependentOn is required when type is one of INFRASTRUCTURE, INTERNAL_DEPENDENCY, EXTERNAL_DEPENDENCY at "dependentOn""`;
+
+exports[`Response Validation dependentOn should not be present for type INTERNET_CONNECTIVITY 1`] = `"DependentOn should be omitted when type is one of SELF, METRICS, INTERNET_CONNECTIVITY at "dependentOn""`;
+
+exports[`Response Validation dependentOn should not be present for type METRICS 1`] = `"DependentOn should be omitted when type is one of SELF, METRICS, INTERNET_CONNECTIVITY at "dependentOn""`;
+
+exports[`Response Validation dependentOn should not be present for type SELF 1`] = `"DependentOn should be omitted when type is one of SELF, METRICS, INTERNET_CONNECTIVITY at "dependentOn""`;
