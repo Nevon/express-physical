@@ -34,9 +34,9 @@ describe("Response", () => {
 
     requiredFields.forEach(field => {
       test(`It should throw an error when ${field} is missing`, () => {
-        expect(() => response(R.omit([field], healthyResponse))).toThrow(
-          InvalidHealthcheckResponse
-        );
+        expect(() =>
+          response(R.omit([field], healthyResponse))
+        ).toThrowErrorMatchingSnapshot();
       });
     });
 
@@ -47,7 +47,7 @@ describe("Response", () => {
           response(
             Object.assign({}, healthyResponse, { info: "not an object" })
           )
-        ).toThrow(InvalidHealthcheckResponse);
+        ).toThrowErrorMatchingSnapshot();
       });
 
       test(`It should not throw an error when ${field} is omitted`, () => {
@@ -69,7 +69,9 @@ describe("Response", () => {
           response(
             Object.assign({}, healthyResponse, { severity: severities.WARNING })
           )
-        ).toThrow(InvalidHealthcheckResponse);
+        ).toThrowErrorMatchingInlineSnapshot(
+          `"Severity should be omitted when healthcheck is healthy at "severity""`
+        );
       });
     });
 
@@ -78,9 +80,9 @@ describe("Response", () => {
 
       requiredFieldsWhenUnhealthy.forEach(field => {
         test(`It should throw an error when ${field} is missing`, () => {
-          expect(() => response(R.omit([field], unhealthyResponse))).toThrow(
-            InvalidHealthcheckResponse
-          );
+          expect(() =>
+            response(R.omit([field], unhealthyResponse))
+          ).toThrowErrorMatchingSnapshot();
         });
       });
     });
@@ -95,7 +97,7 @@ describe("Response", () => {
         test(type, () => {
           expect(() =>
             response(Object.assign({}, unhealthyResponse, { type }))
-          ).toThrow(InvalidHealthcheckResponse);
+          ).toThrowErrorMatchingSnapshot();
         });
       });
     });
@@ -110,7 +112,7 @@ describe("Response", () => {
                 dependentOn: "foobar"
               })
             )
-          ).toThrow(InvalidHealthcheckResponse);
+          ).toThrowErrorMatchingSnapshot();
         });
       });
     });
